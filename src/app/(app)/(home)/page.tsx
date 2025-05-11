@@ -7,8 +7,15 @@ export default async function Home() {
   })
 
   const data = await payload.find({
-    collection: 'users',
+    collection: "categories",
+    depth: 1,
+    where: {
+      parent: {
+        exists:false,
+      }
+    }
   })
+  console.log(data)
 
   return (
     <div>
